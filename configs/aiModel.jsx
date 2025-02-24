@@ -25,7 +25,7 @@ const {
         {
           role: "user",
           parts: [
-            {text: "write a two different script for 2 min podcast on Topic(topic),\n- Give me response in JSON format and follow schema\n{\nscripts:[\n{\ncontent:' '\n},\n]\n}\n\n"},
+            {text: "write a two different script for 10 min podcast on Topic(topic),\n- Give me response in JSON format and follow schema\n{\nscripts:[\n{\ncontent:' '\n},\n]\n}\n\n"},
           ],
         },
         {

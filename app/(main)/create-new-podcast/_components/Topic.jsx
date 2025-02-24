@@ -42,6 +42,7 @@ function Topic({ onHandleInputChange }) {
             setLoading(true);
             setselectedScriptIndex(null);
             const result = await axios.post('/api/generate-script', {
+                timeout: 10000,
                 topic: selectedTopic
             });
             console.log(result.data);

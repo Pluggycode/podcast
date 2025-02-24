@@ -46,8 +46,8 @@ function Voice({ onHandleInputChange }) {
         <ScrollArea className="h-[150px] w-full border border-gray-800 mt-2 rounded-lg">
         <div className="grid grid-cols-2 gap-3 mt-2 p-1" >
             {voiceOptions.map((voice,index)=>(
-                    <h2 key={index} className={`cursor-pointer p-3 dark:bg-slate-900 dark:border-white
-                    rounded-lg hover:border ${voice.name == selectedVoice&& "border"}`} onClick={()=>{setSelectedVoice(voice.name);onHandleInputChange('voice',voice.value)}} >{voice.name}</h2>
+                    <h2 key={index} className={`cursor-pointer p-3 dark:bg-slate-900  border-spacing-4 dark:border-white
+                    rounded-lg hover:border ${voice.name == selectedVoice&& " bg-gradient-to-r from-orange-400 via-orange-500 to-pink-500 border-slate-900 text-slate-900"}`} onClick={()=>{setSelectedVoice(voice.name);onHandleInputChange('voice',voice.value)}} >{voice.name}</h2>
             ))}
         </div>
         </ScrollArea>

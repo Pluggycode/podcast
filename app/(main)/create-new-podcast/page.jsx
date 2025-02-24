@@ -67,10 +67,10 @@ function CreateNewPodcast() {
     }
 
     return (
-        <div>
+        <div className=''>
             <h2 className='text-2xl'>Create new podcast</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
-                <div className="col-span-2 p-3 border rounded-xl mt-8 h-[72vh] overflow-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <div className="col-span-2 p-10 border rounded-xl h-[72vh] overflow-auto mt-16">
                     {/* topic & script */}
                     <Topic onHandleInputChange={onHandleInputChange} />
 
@@ -86,9 +86,7 @@ function CreateNewPodcast() {
 
                   <Link href={'/dashboard'} ><Button disabled={loading} className="w-full mt-5 " onClick={generatePodcast}>{loading?<RefreshCcw  className='animate-spin'/>:<WandSparkles />}Generate Podcast</Button> </Link>
                 </div>
-                <div className="">
-                    <Preview formData={formData} />
-                </div>
+                <Preview formData={formData} />
             </div>
 
         </div>

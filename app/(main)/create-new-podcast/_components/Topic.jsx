@@ -44,7 +44,6 @@ function Topic({ onHandleInputChange }) {
             const result = await axios.post('/api/generate-script', {
                 timeout: 10000,
                 topic: selectedTopic
-                topic: selectedTopic
             });
             console.log(result.data);
             setScripts(result.data?.scripts);
@@ -108,3 +107,7 @@ function Topic({ onHandleInputChange }) {
 
             </div>
         </div>
+    )
+}
+
+export default Topic

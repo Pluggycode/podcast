@@ -1,0 +1,19 @@
+<div>
+        <div className="grid grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 gap-4 mt-10">
+            {videoList.map((podcast, index)=>(
+                <Link href={'/play-video/'+podcast?._id}>
+                <div className="relative" key={index}>
+                    <Image src={podcast?.images[0]} alt={'title'} width={500} height={500}
+                    className='w-full object-cover rounded-xl aspect-[2/3]'/>
+                    <div className="absolute bottom-3 px-5 w-full">
+                        <div className="flex items-center justify-between">
+                        <Image src={podcast?.userImage} alt={'title'} width={30} height={30} className='rounded-full '/>
+                        <h2 className='text-md'>{podcast?.title}</h2>
+                        </div>
+                        <h2 className='text-gray-300'>{moment (podcast._creationTime).fromNow()}</h2>
+                    </div>
+                </div>
+                </Link>
+            ))}
+        </div>
+    </div>

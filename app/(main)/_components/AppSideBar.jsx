@@ -61,15 +61,15 @@ function AppSideBar() {
                         <SidebarGroupContent>
                             <div className="mx-6 mt-8">
                             <Link href={'/create-new-podcast'}><Button className="w-full"> Create New Podcast</Button></Link>
+                                <Link href={'/dashboard'}><Button className="w-full"> Create New Podcast</Button></Link>
+                                <Link href={'/explore'}><Button className="w-full"> Create New Podcast</Button></Link>
+                                <Link href={'/billing'}><Button className="w-full"> Create New Podcast</Button></Link>
                             </div>
                             <SidebarMenu>
                                 {menuItems.map((menu,index) => (
                                     <SidebarMenuItem className="mt-3" key={index}>
                                         <SidebarMenuButton className="p-5 bg-nav-focus border-r-4 border-orange-1" isActive={path==menu.url}>
-                                            <Link href={menu.url} className='flex items-center gap-4 p-3 '>
-                                            <menu.icon />
-                                            <span>{menu.title}</span>
-                                            </Link>
+                                         
                                         </SidebarMenuButton>
                                     </SidebarMenuItem>
                                 ))}

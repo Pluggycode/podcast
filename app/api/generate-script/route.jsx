@@ -1,7 +1,7 @@
 import { generateScript } from "../../../configs/aiModel";
 import { NextResponse } from "next/server";
 
-const Script_Prompt = `write a two different script for 10 minutes podcast on Topic{topic},
+const Script_Prompt = `write a two different script for 5 minutes podcast on Topic{topic},
 skip serial no of podcasts,
 Do not add Scene description,
 Do not Add Anything in Braces, just return the plain story in text

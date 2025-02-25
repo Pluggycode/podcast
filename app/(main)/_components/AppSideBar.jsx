@@ -77,4 +77,4 @@ function AppSideBar() {
     );
 }
 
-export default AppSideBar;
+export default AppSideBar

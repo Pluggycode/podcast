@@ -11,11 +11,11 @@ function RemotionPlayer({ videoData }) {
                 component={RemotionComposition}
                 durationInFrames={Number(durationInFrame.toFixed(0))+100}
                 compositionWidth={720}
-                compositionHeight={1280}
+                compositionHeight={1000}
                 fps={30}
                 controls
                 style={{
-                    width:'44vh',
+                    width:'46vh',
                     height:'70vh'
                 }}
                 inputProps={{

@@ -15,7 +15,7 @@ function RemotionPlayer({ videoData }) {
                 fps={30}
                 controls
                 style={{
-                    width: '38vh',
+                    width: '42vh',
                     height: '56vh',
                 }}
                 inputProps={{

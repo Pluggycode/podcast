@@ -1,103 +1,90 @@
-'use client'
-import React from 'react'
-import { userAuthContext } from '../../provider'
-import { Button } from '../../../components/ui/button';
-import { BadgeDollarSign, DollarSignIcon } from 'lucide-react';
-import { PayPalButtons } from '@paypal/react-paypal-js';
-import { useMutation } from 'convex/react';
-import { api } from '../../../convex/_generated/api';
+"use client";
+import React from "react";
+import { userAuthContext } from "../../provider";
+import { Button } from "../../../components/ui/button";
+import { BadgeDollarSign } from "lucide-react";
+import { PayPalButtons } from "@paypal/react-paypal-js";
+import { useMutation } from "convex/react";
+import { api } from "../../../convex/_generated/api";
 
 const credits = [
-    {
-        Credits: 10,
-        cost: 1
-    },
-    {
-        Credits: 50,
-        cost: 5
-    },
-    {
-        Credits: 100,
-        cost: 9
-    },
-    {
-        Credits: 200,
-        cost: 15
-    },
-    {
-        Credits: 300,
-        cost: 25
-    },
+  { Credits: 10, cost: 1 },
+  { Credits: 50, cost: 5 },
+  { Credits: 100, cost: 9 },
+  { Credits: 200, cost: 15 },
+  { Credits: 300, cost: 25 },
+];
 
-]
+function Page() {
+  const { user, setUser } = userAuthContext();
+  const updateUserCredits = useMutation(api.users.updateUserCredits);
 
-function page() {
-    const { user,setUser } = userAuthContext();
-    const updateUserCredits = useMutation(api.users.UpdateUserCredits);
-    const onPaymentSuccess = async () => {
-        // update user credits
-        const result = await updateUserCredits({
-            uid: user._id,
-            credits:Number(user?.credits)+Number(credits)
-        });
-        console.log(result)
-        setUser(prev => ({
-            ...prev,
-            credits:Number(user?.credits)+Number(credits)
-        }));
-        toast('Credits Added Successfully');
-    }
-    return (
-        <div className=''>
-            <h2 className='font-bold text-3xl'>Credits</h2>
-            <div className=" grid grid-cols-2">
-            <div className="mt-5 rounded-lg justify-between p-5 w-full">
-                <div className=" border border-gray-600 rounded-lg p-3 flex justify-between">
-                    <div className="">
-                    <h2 className='text-2xl font-bold'>Total Credits Left</h2>
-                    <h2 className='text-gray-400'>1 Credits + 1 video</h2>
-                    </div>
-                    <div className="text-center">
-                    <h2 className='text-2xl mt-2 font-bold'>{user?.credits} Credits</h2>
-                    </div>
-                </div>
-                <div className=" mt-3">
-                <h2 className='text-sm text-gray-400'>When your credits reaches to $0. Your Video generation will stop working Add Credits Balance Stoped up..</h2>
-                </div>
-                <h2 className='text-2xl font-bold mt-2'>By More Credits</h2>
-                <div className="">
-                    {credits.map((credit, index) => (
-                        <div className=" border border-gray-600 rounded-lg p-5 flex justify-between mt-2" key={index}>
-                            <div className="text-center mt-2 flex gap-2">
-                            <BadgeDollarSign />
-                                <h2 className=''>{credit.Credits} Credits</h2>
-                            </div>
-                            <div className="text-center flex gap-2 ">
-                                <h2 className=' font-bold mt-2'> $ {credit.cost}</h2>
-                                <PayPalButtons style={{ layout: "horizontal" }} className='mt-2 rounded-lg' 
-                                onApprove={() => onPaymentSuccess()}
-                                onCancel={() => console.log('cancel')}
-                                createOrder={(data, actions) => {
-                                    return actions.order.create({
-                                        purchase_units: [
-                                            {
-                                                amount: {
-                                                    value: credit.cost,
-                                                    currency_code:"USD"                                                },
-                                            },
-                                        ],
-                                    });
-                                }
-                                }
-                                />
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-            </div>
+  const onPaymentSuccess = async (creditAmount) => {
+    const newCredits = Number(user?.credits) + Number(creditAmount);
+    await updateUserCredits({ uid: user._id, credits: newCredits });
+
+    setUser((prev) => ({
+      ...prev,
+      credits: newCredits,
+    }));
+
+    toast("Credits Added Successfully");
+  };
+
+  return (
+    <div className="min-h-screen p-6 text-white bg-gray-900">
+      <h2 className="text-3xl font-bold mb-4">Credits</h2>
+      <div className="max-w-3xl mx-auto">
+        {/* Credits Left Card */}
+        <div className="border border-gray-600 rounded-lg p-5 flex flex-col md:flex-row justify-between items-center">
+          <div>
+            <h2 className="text-2xl font-bold">Total Credits Left</h2>
+            <p className="text-gray-400">1 Credit = 1 Video</p>
+          </div>
+          <h2 className="text-2xl font-bold mt-2 md:mt-0">{user?.credits} Credits</h2>
         </div>
-    )
+
+        {/* Info Text */}
+        <p className="text-sm text-gray-400 mt-3">
+          When your credits reach **$0**, video generation will stop working. Add more credits to continue.
+        </p>
+
+        {/* Buy More Credits Section */}
+        <h2 className="text-2xl font-bold mt-5">Buy More Credits</h2>
+        <div className="space-y-3">
+          {credits.map((credit, index) => (
+            <div key={index} className="border border-gray-600 rounded-lg p-4 flex justify-between items-center">
+              {/* Credits Info */}
+              <div className="flex items-center gap-2">
+                <BadgeDollarSign />
+                <h2 className="text-lg">{credit.Credits} Credits</h2>
+              </div>
+
+              {/* Price & PayPal Button */}
+              <div className="flex items-center gap-3">
+                <h2 className="font-bold text-lg">${credit.cost}</h2>
+                <div className="w-full max-w-[180px]">
+                  <PayPalButtons
+                    style={{ layout: "horizontal", shape: "rect", size: "small" }}
+                    className="rounded-lg w-full"
+                    onApprove={() => onPaymentSuccess(credit.Credits)}
+                    onCancel={() => console.log("Payment Cancelled")}
+                    createOrder={(data, actions) => {
+                      return actions.order.create({
+                        purchase_units: [
+                          { amount: { value: credit.cost, currency_code: "USD" } },
+                        ],
+                      });
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default page
+export default Page;

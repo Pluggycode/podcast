@@ -7,37 +7,34 @@ import { api } from '../../../../convex/_generated/api';
 import { useParams } from 'next/navigation';
 
 function Platvideo() {
-
-    const {videoId} = useParams();
+    const { videoId } = useParams();
     const convex = useConvex();
-    const [videoData,setVideoData] = useState();
+    const [videoData, setVideoData] = useState();
 
-    useEffect(()=>{
+    useEffect(() => {
         videoId && GetPodcastById();
-    },[videoId])
-    const GetPodcastById= async () => {
-        const result = await convex.query(api.podcastData.GetPodcastByid,{
-            PodcastId:videoId
-        })
+    }, [videoId]);
+
+    const GetPodcastById = async () => {
+        const result = await convex.query(api.podcastData.GetPodcastByid, {
+            PodcastId: videoId
+        });
         console.log(result);
         setVideoData(result);
-    }
-  return (
-    <div className='grid grid-cols-1 md:grid-cols-2 gap-10 '>
-        <div className="" >
+    };
 
-        {/* RemotionPlayer */}
-        <RemotionPlayer videoData = {videoData}/>
-
+    return (
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-10 md:p-6 lg:p-8'>
+            <div className="w-full">
+                {/* RemotionPlayer */}
+                <RemotionPlayer videoData={videoData} />
+            </div>
+            <div className="w-full">
+                {/* VideoInformation */}
+                <VideoDetails videoData={videoData} />
+            </div>
         </div>
-        <div className="">
-
-            {/* VideoInformation */}
-            <VideoDetails videoData = {videoData} />
-
-        </div>
-    </div>
-  )
+    );
 }
 
-export default Platvideo
+export default Platvideo;

@@ -4,23 +4,23 @@ import { Player } from '@remotion/player'
 import RemotionComposition from '../../../../app/_components/RemotionComposition'
 
 function RemotionPlayer({ videoData }) {
-    const [durationInFrame,setDurationInFrame] = useState(100);
+    const [durationInFrame, setDurationInFrame] = useState(100);
     return (
-        <div>
+        <div className="w-full max-w-screen-md mx-auto">
             <Player
                 component={RemotionComposition}
-                durationInFrames={Number(durationInFrame.toFixed(0))+100}
+                durationInFrames={Number(durationInFrame.toFixed(0)) + 100}
                 compositionWidth={720}
-                compositionHeight={1000}
+                compositionHeight={1280}
                 fps={30}
                 controls
                 style={{
-                    width:'46vh',
-                    height:'70vh'
+                    width: '32vh',
+                    height: '55vh',
                 }}
                 inputProps={{
-                    videoData:videoData,
-                    setDurtionInFrame:(frameValue) => setDurationInFrame(frameValue)
+                    videoData: videoData,
+                    setDurtionInFrame: (frameValue) => setDurationInFrame(frameValue)
                 }}
             />
         </div>

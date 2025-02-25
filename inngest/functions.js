@@ -1,6 +1,6 @@
 import { inngest } from "./client";
 import axios from "axios";
-import { GenerateImageScript } from "../configs/aiModel";
+import { GenerateImageScript } from "../configs/PromptModel";
 import { ConvexHttpClient } from "convex/browser";
 import { api } from "../convex/_generated/api";
 

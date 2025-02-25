@@ -32,7 +32,7 @@ const voiceOptions = [
     },
     {
         "value":"am_echo",
-        "name": "us Echo (Male)"
+        "name": "🇺🇸 Echo (Male)"
     },
 
 ]

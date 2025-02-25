@@ -37,7 +37,7 @@ const {
       ],
     });
 
-     export const GenerateImageScript = model.startChat({
+     export const GenerateImageScri = model.startChat({
       generationConfig,
       history: [
         {
@@ -67,7 +67,7 @@ const {
         {
           role: "user",
           parts: [
-            {text: "Generate Image prompt of cinematic style with all details for each scene for 2 minutes video : script : Welcome to the show! Today, we're exploring fascinating tech breakthroughs shaping our future. These innovations are poised to revolutionize industries and redefine how we live.\n\nFirst up: advancements in sustainable energy. We're seeing more efficient solar panels, breakthroughs in battery storage, and innovative approaches to wind power. These developments are crucial in combating climate change and creating a greener planet. Imagine a world powered entirely by clean, renewable energy. That future is becoming increasingly tangible.\n\nNext, let's talk about artificial intelligence. AI is no longer a futuristic fantasy; it's transforming healthcare, transportation, and manufacturing. AI-powered diagnostics are improving accuracy and speeding up diagnoses. Self-driving cars promise to make our roads safer and more efficient. The potential of AI is vast and continues to expand.\n\nThese tech breakthroughs offer exciting possibilities. While challenges remain, the potential benefits for society are immense. It's a thrilling time to witness these innovations unfold and shape the world around us. Stay tuned for more updates on the cutting edge of technology.\nThank you for listening!\n\n-just Give specifing image propmt depends on the story line\n\n-do not give camera angle image prompt\n\n-follow the following schema and return JSON data (MAX 9-10 Images)\n-give  only  json data skip your comments\n-[\n{\nimagePromt:' ',\nsceneContents: ' <Script Content>'\n}\n]"},
+            {text: "Generate Image prompt of style with all details for each scene for 2 minutes video : script : Welcome to the show! Today, we're exploring fascinating tech breakthroughs shaping our future. These innovations are poised to revolutionize industries and redefine how we live.\n\nFirst up: advancements in sustainable energy. We're seeing more efficient solar panels, breakthroughs in battery storage, and innovative approaches to wind power. These developments are crucial in combating climate change and creating a greener planet. Imagine a world powered entirely by clean, renewable energy. That future is becoming increasingly tangible.\n\nNext, let's talk about artificial intelligence. AI is no longer a futuristic fantasy; it's transforming healthcare, transportation, and manufacturing. AI-powered diagnostics are improving accuracy and speeding up diagnoses. Self-driving cars promise to make our roads safer and more efficient. The potential of AI is vast and continues to expand.\n\nThese tech breakthroughs offer exciting possibilities. While challenges remain, the potential benefits for society are immense. It's a thrilling time to witness these innovations unfold and shape the world around us. Stay tuned for more updates on the cutting edge of technology.\nThank you for listening!\n\n-just Give specifing image propmt depends on the story line\n\n-do not give camera angle image prompt\n\n-follow the following schema and return JSON data (MAX 9-10 Images)\n-give  only  json data skip your comments\n-[\n{\nimagePromt:' ',\nsceneContents: ' <Script Content>'\n}\n]"},
           ],
         },
         {

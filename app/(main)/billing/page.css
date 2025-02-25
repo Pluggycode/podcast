@@ -1,0 +1,16 @@
+.paypal-button {
+    width: 100%;
+    max-width: 300px;
+}
+
+@media (max-width: 768px) {
+    .paypal-button {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .paypal-button {
+        max-width: 150px;
+    }
+}

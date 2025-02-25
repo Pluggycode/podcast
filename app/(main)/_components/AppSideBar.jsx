@@ -1,5 +1,5 @@
-
-import React from 'react'
+import React from 'react';
+import { useState } from 'react';
 import {
     Sidebar,
     SidebarContent,
@@ -10,68 +10,53 @@ import {
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
-} from "../../../components/ui/sidebar"
-import Image from 'next/image'
-import { Button } from '../../../components/ui/button'
-import { Gem, HomeIcon, LucideFileVideo, SearchIcon, WalletCards } from 'lucide-react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { userAuthContext } from '../../../app/provider'
+} from "../../../components/ui/sidebar";
+import Image from 'next/image';
+import { Button } from '../../../components/ui/button';
+import { Gem, HomeIcon, LucideFileVideo, SearchIcon, WalletCards } from 'lucide-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { userAuthContext } from '../../../app/provider';
 
-const menuItems=[
-    {
-        title:'Home',
-        url: "/dashboard",
-        icon:HomeIcon
-    },
-    {
-        title:'Create New Podcast',
-        url: "/create-new-podcast",
-        icon:LucideFileVideo
-    },
-    {
-        title:'Explore',
-        url: "/explore",
-        icon:SearchIcon
-    },
-    {
-        title:'Billing',
-        url: "/billing",
-        icon:WalletCards
-    },
-]
 function AppSideBar() {
     const path = usePathname();
-    const {user} = userAuthContext();
-    console.log(path)
+    const { user } = userAuthContext();
+
+    const menuItems = [
+        { title: 'Home', url: '/dashboard' },
+        { title: 'Explore', url: '/explore' },
+        { title: 'Billing', url: '/billing' },
+    ];
+
     return (
         <div>
             <Sidebar>
                 <SidebarHeader>
                     <div className="">
-                    <div className='flex items-center gap-3 w-full justify-center mt-3'>
-                        <Image src={'/logo.svg'} alt='logo' width={40} height={40} />
-                        <h2 className='font-bold text-2xl' >Magna Podcast</h2>
-                    </div>
-                    <h2 className='text-lg text-gray-400 text-center mt-2'> AI Podcast Generator</h2>
+                        <div className='flex items-center gap-3 w-full justify-center mt-3'>
+                            <Image src={'/logo.svg'} alt='logo' width={40} height={40} />
+                            <h2 className='font-bold text-2xl'>Magna Podcast</h2>
+                        </div>
+                        <h2 className='text-lg text-gray-400 text-center mt-2'>AI Podcast Generator</h2>
                     </div>
                 </SidebarHeader>
                 <SidebarContent>
                     <SidebarGroup>
                         <SidebarGroupContent>
                             <div className="mx-6 mt-8">
-                            <Link href={'/create-new-podcast'}><Button className="w-full"> Create New Podcast</Button></Link>
+                                <Link href={'/create-new-podcast'}>
+                                    <Button className="w-full mt-3">Create New Podcast</Button>
+                                </Link>
                             </div>
                             <SidebarMenu>
-                                {menuItems.map((menu,index) => (
-                                    <SidebarMenuItem className="mt-3" key={index}>
-                                        <SidebarMenuButton className="p-5 bg-nav-focus border-r-4 border-orange-1" isActive={path==menu.url}>
-                                            <Link href={menu.url} className='flex items-center gap-4 p-3 '>
-                                            <menu.icon />
-                                            <span>{menu.title}</span>
-                                            </Link>
-                                        </SidebarMenuButton>
-                                    </SidebarMenuItem>
+                                {menuItems.map((item, index) => (
+                                    <Link href={item.url} key={index}>
+                                        <Button
+                                            className={`w-full mt-3 ${path === item.url ? 'bg-slate-800 text-gray-200 border border-white':'bg-gray-800 text-gray-200'} hover:bg-slate-800  hover:text-gray-200 `}
+                                        >
+                                            {item.title}
+                                        </Button>
+                                    </Link>
                                 ))}
                             </SidebarMenu>
                         </SidebarGroupContent>
@@ -79,17 +64,17 @@ function AppSideBar() {
                     <SidebarGroup />
                 </SidebarContent>
                 <SidebarFooter>
-                    <div className=" p-5 border rounded-lg mb-6 bg-gray-800">
+                    <div className="p-5 border rounded-lg mb-6 bg-gray-800">
                         <div className="flex items-center justify-between">
-                            <Gem className='text-gray-400'/>
+                            <Gem className='text-gray-400' />
                             <h2 className='text-gray-400'>{user?.credits} Credits Left</h2>
                         </div>
-                        <Button className="w-full mt-3"> Buy More Credits</Button>
+                        <Link href={'/billing'} ><Button className="w-full mt-3">Buy More Credits</Button></Link>
                     </div>
                 </SidebarFooter>
             </Sidebar>
         </div>
-    )
+    );
 }
 
-export default AppSideBar
+export default AppSideBar;

@@ -12,7 +12,7 @@ function RemotionPlayer({ videoData }) {
                 durationInFrames={Number(durationInFrame.toFixed(0)) + 100}
                 compositionWidth={680}
                 compositionHeight={1280}
-                fps={60}
+                fps={30}
                 controls
                 style={{
                     width: '40vh',

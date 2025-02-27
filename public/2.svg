@@ -5,8 +5,9 @@
 </g>
 <defs>
 <linearGradient id="paint0_linear_1113_4495" x1="-27" y1="185" x2="227" y2="15" gradientUnits="userSpaceOnUse">
-<stop stop-color="#B085F5"/>  <!-- Light Purple -->
-<stop offset="0.4" stop-color="#612c9d"/>  <!-- Deep Purple -->
+<stop stop-color="#C792EA"/>  <!-- More Purple -->
+<stop offset="0.4" stop-color="#8A67E0"/>  <!-- Deep Purple -->
+<stop offset="0.7" stop-color="#3F51B5"/>  <!-- Blue with Purple Tint -->
 <stop offset="1" stop-color="#1A237E"/>  <!-- Dark Blue -->
 </linearGradient>
 <clipPath id="clip0_1113_4495">

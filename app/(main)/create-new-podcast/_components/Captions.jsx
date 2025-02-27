@@ -40,7 +40,7 @@ function Captions({onHandleInputChange}) {
         <div className="flex flex-wrap gap-4">
             {options.map((option,index)=>(
                 <div className={`p-2 hover:border border-gray-300 cursor-pointer bg-slate-900 rounded-lg
-                    ${selectedCaptionStyle==option.name && 'border'}
+                    ${selectedCaptionStyle==option.name && 'border bg-gradient-to-tr from-[#B085F5] via-[#612c9d] to-[#1A237E] bg-[length:200%_200%] text-white px-6 py-3 rounded-lg shadow-lg transition-all hover:shadow-xl'}
                     `} key={index}
                 onClick={() => {setselectedCaptionStyle(option.name);onHandleInputChange('captions',option)}}
                 >

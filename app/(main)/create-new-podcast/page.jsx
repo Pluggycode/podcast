@@ -95,11 +95,11 @@ function CreateNewPodcast() {
                     {/* captions */}
                     <Captions onHandleInputChange={onHandleInputChange} />
 
-                    <Button disabled={loading} className="w-full mt-5" onClick={generatePodcast}>
+                    <Button disabled={loading} className="w-full mt-5 bg-gradient-to-tr from-[#B085F5] via-[#612c9d] to-[#1A237E] text-white" onClick={generatePodcast}>
                         {loading ? <RefreshCcw className='animate-spin' />:<WandSparkles />} Generate Podcast
                     </Button>
 
-                    <Link href={'/dashboard'}><Button className="mt-5 w-full bg-slate-800 border text-gray-100 hover:border-gray-100 hover:text-slate-800 hover:bg-gray-200" disabled={loading}>Dashboard</Button></Link>
+                    <Link href={'/dashboard'}><Button className="mt-5 w-full bg-white border text-black  hover:text-white hover:bg-gradient-to-tr from-[#B085F5] via-[#612c9d] to-[#1A237E]" disabled={loading}>Dashboard</Button></Link>
                 </div>
                 <Preview formData={formData} />
             </div>

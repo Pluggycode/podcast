@@ -23,6 +23,7 @@
     "@remotion/player": "4.0.260",
     "axios": "^1.7.9",
     "class-variance-authority": "^0.7.1",
+    "classnames": "^2.5.1",
     "convex": "^1.19.2",
     "firebase": "^11.3.1",
     "inngest": "^3.31.8",

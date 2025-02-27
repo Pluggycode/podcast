@@ -27,7 +27,7 @@ function Platvideo() {
         <div className='grid grid-cols-1 md:grid-cols-2 gap-10 md:p-6 lg:p-8'>
             <div className="w-full">
                 {/* RemotionPlayer */}
-                <RemotionPlayer videoData={videoData} />
+                <RemotionPlayer videoData={videoData} className="md:"/>
             </div>
             <div className="w-full">
                 {/* VideoInformation */}

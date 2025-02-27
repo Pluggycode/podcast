@@ -69,7 +69,7 @@ function Topic({ onHandleInputChange }) {
                     <TabsContent value="Suggetions" className="" >
                         <div className="">
                             {suggestions.map((suggestions, index) => (
-                                <Button variant="outline" key={index} className={`mr-1 mt-1 ${suggestions == selectedTopic && 'bg-secondary'}`}
+                                <Button variant="outline" key={index} className={`mr-1 mt-1 ${suggestions == selectedTopic && 'bg-gradient-to-tr from-[#B085F5] via-[#612c9d] to-[#1A237E] bg-[length:200%_200%] text-white px-6 py-3 rounded-lg shadow-lg transition-all hover:shadow-xl font-medium border border-white'}`}
                                     onClick={() => {
                                         setselectedTopic(suggestions)
                                         onHandleInputChange('topic', suggestions)
@@ -92,7 +92,7 @@ function Topic({ onHandleInputChange }) {
                         <div className='grid grid-cols-2 gap-5 mt-1'>
                             {scripts?.map((item, index) => (
                                 <div className={`p-3 border rounded-lg mt-3 cursor-pointer
-                            ${selectedScriptIndex == index && 'border-white bg-secondary'}`} key={index}
+                            ${selectedScriptIndex == index && 'bg-gradient-to-tr from-[#B085F5] via-[#612c9d] to-[#1A237E] bg-[length:200%_200%] text-white px-6 py-3 rounded-lg shadow-lg transition-all hover:shadow-xl font-medium border border-white'}`} key={index}
                                     onClick={() => {setselectedScriptIndex(index); onHandleInputChange("script",item.content)}}>
                                     <h2 className='line-clamp-4 text-sm text-gray-300'>{item.content}</h2>
                                 </div>
@@ -101,7 +101,7 @@ function Topic({ onHandleInputChange }) {
                     </div>
                 }
 
-                {!scripts && <Button disabled={loading} className="mt-3" size="sm" onClick={generateScript}>
+                {!scripts && <Button disabled={loading} className="mt-3 bg-gradient-to-tr from-[#B085F5] via-[#612c9d] to-[#1A237E] text-white" size="sm" onClick={generateScript}>
                     {loading ? <LoaderIcon className='animate-spin' /> : <SparkleIcon />}Generate Script </Button>
                 }
 

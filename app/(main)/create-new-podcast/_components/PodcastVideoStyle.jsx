@@ -47,7 +47,7 @@ function PodcastVideoStyle({ onHandleInputChange }) {
                 onClick={() => {setSelectedStyle(option.name);onHandleInputChange('videoStyle',option.name)}}>
                     <Image src={option.image || "/logo.png"} alt={option.name} width={500} height={120} 
                     className={`object-cover h-[90px] lg:h-[130px] xl:h-[180px] rounded-lg p-1 
-                    hover:border  border-gray-300 ${option.name == selectedStyle &&  'border'}` }/>
+                    hover:border  border-gray-300 ${option.name == selectedStyle &&  'border bg-gradient-to-tr from-[#B085F5] via-[#612c9d] to-[#1A237E]'}` }/>
                     <h2 className='absolute bottom-3 text-center w-full text-border text-white text-xl'>
                         {option.name}
                     </h2>

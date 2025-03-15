@@ -32,11 +32,11 @@ function Page() {
   };
 
   return (
-    <div className="min-h-screen p-6 text-white bg-gray-900 border-purple-500 ">
+    <div className="min-h-screen p-6 text-white bg-gray-900 border-purple-500 border shadow-md rounded-lg">
       <h2 className="text-3xl font-bold mb-4">Credits</h2>
       <div className="max-w-3xl mx-auto">
         {/* Credits Left Card */}
-        <div className="border border-gray-600 rounded-lg p-5 flex flex-col md:flex-row justify-between items-center">
+        <div className="border shadow-md border-purple-500 rounded-lg p-5 flex flex-col md:flex-row justify-between items-center">
           <div>
             <h2 className="text-2xl font-bold">Total Credits Left</h2>
             <p className="text-gray-400">1 Credit = 1 Video</p>
@@ -53,10 +53,10 @@ function Page() {
         <h2 className="text-2xl font-bold mt-5">Buy More Credits</h2>
         <div className="space-y-3">
           {credits.map((credit, index) => (
-            <div key={index} className="border border-purple-500 rounded-lg p-4 flex justify-between items-center">
+            <div key={index} className="border border-purple-500 rounded-lg p-4 flex justify-between items-center shadow-md">
               {/* Credits Info */}
               <div className="flex items-center gap-2">
-                <BadgeDollarSign />
+                <BadgeDollarSign className="text-purple-500 shadow-md"/>
                 <h2 className="text-lg">{credit.Credits} Credits</h2>
               </div>
 

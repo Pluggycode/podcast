@@ -24,6 +24,7 @@ function AppSideBar() {
         { title: 'Home', url: '/dashboard' },
         { title: 'Explore', url: '/explore' },
         { title: 'Billing', url: '/billing' },
+        { title: 'Create-New-Podcast', url: '/create-new-podcast' },
     ];
 
     return (

@@ -32,7 +32,7 @@ function Page() {
   };
 
   return (
-    <div className="min-h-screen p-6 text-white bg-gray-900">
+    <div className="min-h-screen p-6 text-white bg-gray-900 border-purple-500 ">
       <h2 className="text-3xl font-bold mb-4">Credits</h2>
       <div className="max-w-3xl mx-auto">
         {/* Credits Left Card */}

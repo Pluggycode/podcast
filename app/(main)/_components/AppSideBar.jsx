@@ -22,9 +22,9 @@ function AppSideBar() {
 
     const menuItems = [
         { title: 'Home', url: '/dashboard' },
+        { title: 'Create-New-Podcast', url: '/create-new-podcast' },
         { title: 'Explore', url: '/explore' },
         { title: 'Billing', url: '/billing' },
-        { title: 'Create-New-Podcast', url: '/create-new-podcast' },
     ];
 
     return (
@@ -42,13 +42,6 @@ function AppSideBar() {
             <SidebarContent>
                 <SidebarGroup>
                     <SidebarGroupContent>
-                        <div className="px-4 mt-6">
-                            <Link href="/create-new-podcast">
-                                <Button className="w-full bg-gradient-to-tr from-[#B085F5] via-[#612c9d] to-[#1A237E] bg-[length:200%_200%] text-white px-6 py-3 rounded-lg shadow-lg transition-all hover:shadow-xl">
-                                    Create New Podcast
-                                </Button>
-                            </Link>
-                        </div>
                         <SidebarMenu className="mt-4">
                             {menuItems.map((item, index) => (
                                 <Link href={item.url} key={index}>

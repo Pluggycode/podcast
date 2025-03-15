@@ -8,7 +8,7 @@ const {
   const genAI = new GoogleGenerativeAI(apiKey);
   
   const model = genAI.getGenerativeModel({
-    model: "learnlm-1.5-pro-experimental",
+    model: "gemini-1.5-pro",
   });
   
   const generationConfig = {

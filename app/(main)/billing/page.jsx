@@ -53,7 +53,7 @@ function Page() {
         <h2 className="text-2xl font-bold mt-5">Buy More Credits</h2>
         <div className="space-y-3">
           {credits.map((credit, index) => (
-            <div key={index} className="border border-gray-600 rounded-lg p-4 flex justify-between items-center">
+            <div key={index} className="border border-purple-500 rounded-lg p-4 flex justify-between items-center">
               {/* Credits Info */}
               <div className="flex items-center gap-2">
                 <BadgeDollarSign />

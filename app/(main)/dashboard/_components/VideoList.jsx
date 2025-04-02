@@ -65,7 +65,7 @@ function VideoList() {
         :
         <div className="grid grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 gap-4 mt-10">
             {videoList.map((podcast, index)=>(
-                <Link href={'/play-vide/'+podcast?._id}>
+                <Link href={'/play-vie/'+podcast?._id}>
                 <div className="relative" key={index}>
                    {podcast?.status == 'completed' ? <Image src={podcast?.images[0]} alt={'title'} width={500} height={500}
                     className='w-full object-cover rounded-xl aspect-[2/3]'/>

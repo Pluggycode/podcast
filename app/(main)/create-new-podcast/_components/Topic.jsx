@@ -81,7 +81,10 @@ function Topic({ onHandleInputChange }) {
                         <div className="">
                             <h2>Enter your own topic</h2>
                             <Textarea placeholder="enter your topic"
-                                onChange={(event) => onHandleInputChange('topic', event.target.value)} />
+                                 onChange={(event) => {
+                                        onHandleInputChange('topic', event.target.value);
+                                        setselectedTopic(event.target.value); // <-- ADD THIS LINE
+                                        }} />
                         </div>
                     </TabsContent>
                 </Tabs>

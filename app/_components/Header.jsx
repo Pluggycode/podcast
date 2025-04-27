@@ -16,11 +16,10 @@ function FeatureCard({ icon: Icon, title, description }) {
     </div>
   );
 }
-
 function Header() {
   const { user } = userAuthContext();
   return (
-    <div className="min-h-screen bg-gradient-to-tr from-[#B085F5] via-[#612c9d] to-[#1A237E] bg-[length:200%_200%] w-full animate-gradient">
+    <div className="min-h-screen bg-gradient-to-tr from-[#1A237E] via-[#612c9d] to-[#B085F5] bg-[length:200%_200%] w-full animate-gradient">
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-16">
         <nav className="flex justify-between items-center mb-16">

@@ -16,6 +16,7 @@ function FeatureCard({ icon: Icon, title, description }) {
     </div>
   );
 }
+[#1A237E]
 function Header() {
   const { user } = userAuthContext();
   return (

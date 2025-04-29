@@ -25,6 +25,7 @@ function AppSideBar() {
         { title: 'Create-New-Podcast', url: '/create-new-podcast' },
         { title: 'Explore', url: '/explore' },
         { title: 'Billing', url: '/billing' },
+        { title: 'Logout', url: '/logout' }
     ];
 
     return (

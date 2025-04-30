@@ -2,22 +2,36 @@ import { ArrowLeft, DownloadIcon, SkullIcon } from 'lucide-react'
 import React from 'react'
 import { Button } from '../../../../components/ui/button'
 import Link from 'next/link'
+import { LucideShare, SkipBack } from 'lucide-react'
+import ShareButtons from './ShareButtons'
+import { useState } from 'react'
 
-function VideoDetails({videoData}) {
+function VideoDetails({ videoData }) {
+  const [share, setshare] = useState();
+  const currentURL = typeof window !== 'undefined' ? window.location.href : '';
+  const onshare = () => {
+    setshare(true)
+  }
+  const offshare = () => {
+    setshare(false)
+  }
   return (
     <div className='p-5 border rounded-xl'>
-        <Link href={'/dashboard'}>
+      <Link href={'/dashboard'}>
         <h2 className='flex gap-2 items-center'>
-            <ArrowLeft />
-            Back to dashBoard
+          <ArrowLeft />
+          Back to dashBoard
         </h2>
-        </Link>
-        <div className=" flex flex-col gap-3">
+      </Link>
+      <div className=" flex flex-col gap-3">
         <h2 className='mt-5'>Projet Name: {videoData?.title}</h2>
-        <p className='text-gray-500 text-sm'>Script: {videoData?.script }</p>
+        <p className='text-gray-500 text-sm'>Script: {videoData?.script}</p>
         <h2>VideoStyle: {videoData?.videoStyle}</h2>
+        {share ? <ShareButtons title={videoData?.title} url={currentURL}
+          className='mt-5' /> : <Button onClick={onshare} className=" mt-5"><LucideShare /> Share</Button>}
+        {share ? <Button onClick={offshare} className='mt-5 mr-50'><ArrowLeft/> Back </Button> : ''}
         <Button><SkullIcon /> Delete </Button>
-        </div>
+      </div>
     </div>
   )
 }

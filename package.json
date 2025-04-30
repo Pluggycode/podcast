@@ -26,6 +26,7 @@
     "classnames": "^2.5.1",
     "convex": "^1.19.2",
     "firebase": "^11.3.1",
+    "framer-motion": "^12.9.2",
     "inngest": "^3.31.8",
     "lucide-react": "^0.475.0",
     "moment": "^2.30.1",

@@ -52,7 +52,7 @@ function AppSideBar() {
                 <div className="text-center py-4">
                     <div className="flex items-center justify-center gap-3">
                         <Image src="/logo.svg" alt="logo" width={40} height={40} />
-                        <h2 className="font-bold text-xl text-white">Magna Podcast</h2>
+                        <h2 className="font-bold text-xl text-white">SSIT Podcast</h2>
                     </div>
                     <p className="text-gray-400 text-sm mt-2">AI Podcast Generator</p>
                 </div>

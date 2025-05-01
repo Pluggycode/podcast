@@ -24,13 +24,6 @@ function NavbarWithAbout() {
       {/* Navbar */}
       <nav className="flex items-center justify-between p-5 bg-black text-white shadow-md">
         <h1 className="text-2xl font-bold">MagnaPodcast</h1>
-        <button
-          onClick={handleLogout}
-          className="bg-gradient-to-tr from-[#B085F5] via-[#612c9d] to-[#1A237E] bg-[length:200%_200%] text-white px-4 py-2 rounded-md
-          hover:text-lg hover:text-purple-500 "
-        >
-          Logout
-        </button>
       </nav>
 
       {/* About Us */}

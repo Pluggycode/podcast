@@ -1,3 +1,5 @@
+'use client';
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import {
     Sidebar,
@@ -15,16 +17,33 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { userAuthContext } from '../../../app/provider';
 import classNames from 'classnames';
+import { auth } from '../../../configs/firebaseConfig';
+import { useRouter } from 'next/navigation';
 
 function AppSideBar() {
     const path = usePathname();
     const { user } = userAuthContext();
+    const router = useRouter();
+
+    const handleLogout = async () => {
+        try {
+            await signOut(auth);
+            console.log('User signed out');
+            setTimeout(() => {
+                router.push('/');
+            }, 100);
+            window.location.href = '/';
+            router.push('/'); // Redirect to home after logout
+        } catch (error) {
+            console.error('Error signing out: ', error);
+        }
+    };
 
     const menuItems = [
         { title: 'Home', url: '/dashboard' },
         { title: 'Create-New-Podcast', url: '/create-new-podcast' },
         { title: 'Explore', url: '/explore' },
-        { title: 'Logout', url: '/logout' }
+        { title: 'About us', url: '/logout' }
     ];
 
     return (
@@ -60,6 +79,13 @@ function AppSideBar() {
                                     </Button>
                                 </Link>
                             ))}
+                            <Button
+                                onClick={handleLogout}
+                                className="w-full text-white px-4 py-2 rounded-md mt-3 transition-all duration-300 bg-gradient-to-tr from-[#B085F5] via-[#612c9d] to-[#1A237E] hover:bg-white hover:text-black hover:from-white hover:via-white hover:to-white"
+                            >
+                                Logout
+                            </Button>
+
                         </SidebarMenu>
                     </SidebarGroupContent>
                 </SidebarGroup>

@@ -23,7 +23,7 @@ function NavbarWithAbout() {
     <div className="min-h-screen flex flex-col">
       {/* Navbar */}
       <nav className="flex items-center justify-between p-5 bg-black text-white shadow-md">
-        <h1 className="text-2xl font-bold">MagnaPodcast</h1>
+        <h1 className="text-2xl font-bold">SSIT Podcast</h1>
       </nav>
 
       {/* About Us */}
@@ -38,7 +38,7 @@ function NavbarWithAbout() {
         >
           <h2 className="text-5xl font-extrabold text-gray-800 mb-6">About <span className="text-purple-700">Us</span></h2>
           <p className="text-lg text-white leading-8">
-            Welcome to <span className="font-semibold text-purple-500">Magna Podcast</span> — your one-stop platform to bring stories, dreams, and ideas to life.
+            Welcome to <span className="font-semibold text-purple-500">SSIT Podcast</span> — your one-stop platform to bring stories, dreams, and ideas to life.
             <br/><br/>
             Using cutting-edge AI, we empower creators to generate scripts, create podcasts, and share them effortlessly. Our mission is to make professional storytelling accessible, creative, and inspiring.
           </p>

@@ -9,15 +9,20 @@ import { api } from '../../../../convex/_generated/api';
 import { userAuthContext } from '../../../provider';
 import moment from 'moment';
 import { Loader2Icon } from 'lucide-react';
+import { SearchIcon } from 'lucide-react';
 
 function VideoList() {
     const [videoList,setVideoList] = useState([]);
     const convex = useConvex();
     const {user} = userAuthContext();
+    const [searchTerm, setSearchTerm] = useState(""); // Search state
+    
 
     useEffect(()=>{
         user && GetUserVideoList();
     },[user])
+    
+    
 
     const GetUserVideoList = async() => {
         // All user video
@@ -31,6 +36,9 @@ function VideoList() {
 
         isPendiGPodcast && GetPodcastStatus(isPendiGPodcast);
     }
+    const filteredVideoList = videoList.filter((podcast) =>
+        podcast?.title?.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     const GetPodcastStatus = (pendingPodcast) => {
 
@@ -63,8 +71,20 @@ function VideoList() {
             
         </div>
         :
+        <div className="">
+            <div className="my-5 flex border border-white rounded-md bg-slate-900">
+                            <input 
+                                type="text" 
+                                placeholder={ `  Search podcasts by topic...`}
+                                className="w-full p-2 rounded-md text-white bg-slate-900" 
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                    
+                            />
+                            <div className="mt-2 px-3"><SearchIcon /></div>
+                        </div>
         <div className="grid grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 gap-4 mt-10">
-            {videoList.map((podcast, index)=>(
+            {filteredVideoList.map((podcast, index)=>(
                 <Link href={'/play-video/'+podcast?._id}>
                 <div className="relative" key={index}>
                    {podcast?.status == 'completed' ? <Image src={podcast?.images[0]} alt={'title'} width={500} height={500}
@@ -82,6 +102,7 @@ function VideoList() {
                 </div>
                 </Link>
             ))}
+        </div>
         </div>
         }
     </div>

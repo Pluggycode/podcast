@@ -75,7 +75,7 @@ function VideoList() {
             <div className="my-5 flex border border-white rounded-md bg-slate-900">
                             <input 
                                 type="text" 
-                                placeholder={ `  Search podcasts by title...`}
+                                placeholder={"Search podcasts by title..."}
                                 className="w-full p-2 rounded-md text-white bg-slate-900" 
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}

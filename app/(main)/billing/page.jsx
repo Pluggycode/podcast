@@ -72,7 +72,7 @@ function Page() {
                     createOrder={(data, actions) => {
                       return actions.order.create({
                         purchase_units: [
-                          { amount: { value: credit.cost, currency_code: "USD" } },
+                          { amount: { value: credit.cost, currency_code: "INR" } },
                         ],
                       });
                     }}

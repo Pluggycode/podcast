@@ -7,27 +7,28 @@ import ShareButtons from './ShareButtons'
 import { useState } from 'react'
 import { useMutation } from 'convex/react'
 import { api } from '../../../../convex/_generated/api'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
+
 
 function VideoDetails({ videoData }) {
 
-const deleteVideo = useMutation(api.videos.deleteVideo)  // Your delete function
-const router = useRouter()
+  const deleteVideo = useMutation(api.podcastData.deleteVideo)  // Your delete function
+  const router = useRouter()
 
-const handleDelete = async () => {
-  if (!videoData?._id) return
-  const confirmed = confirm("Are you sure you want to delete this video?")
-  if (!confirmed) return
+  const handleDelete = async () => {
+    if (!videoData?._id) return
+    const confirmed = confirm("Are you sure you want to delete this video?")
+    if (!confirmed) return
 
-  try {
-    await deleteVideo({ id: videoData._id })  // Pass the document ID
-    alert("Video deleted successfully")
-    router.push('/dashboard')  // Redirect after deletion
-  } catch (error) {
-    console.error("Failed to delete video:", error)
-    alert("Error deleting video")
+    try {
+      await deleteVideo({ id: videoData._id })  // Pass the document ID
+      alert("Video deleted successfully")
+      router.push('/dashboard')  // Redirect after deletion
+    } catch (error) {
+      console.error("Failed to delete video:", error)
+      alert("Error deleting video")
+    }
   }
-}
 
 
   const [share, setshare] = useState();
@@ -52,8 +53,9 @@ const handleDelete = async () => {
         <h2>VideoStyle: {videoData?.videoStyle}</h2>
         {share ? <ShareButtons title={videoData?.title} url={currentURL}
           className='mt-5' /> : <Button onClick={onshare} className=" mt-5"><LucideShare /> Share</Button>}
-        {share ? <Button onClick={offshare} className='mt-5 mr-50'><ArrowLeft/> Back </Button> : ''}
-       <Button onClick={handleDelete}><SkullIcon /> Delete</Button>
+        {share ? <Button onClick={offshare} className='mt-5 mr-50'><ArrowLeft /> Back </Button> : ''}
+        <Button onClick={handleDelete}><SkullIcon /> Delete</Button>
+
       </div>
     </div>
   )

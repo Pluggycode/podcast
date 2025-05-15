@@ -10,6 +10,9 @@ import { api } from '../../../../convex/_generated/api'
 import { useRouter } from 'next/router'
 
 function VideoDetails({ videoData }) {
+
+const deleteVideo = useMutation(api.videos.deleteVideo)  // Your delete function
+const router = useRouter()
   const [share, setshare] = useState();
   const currentURL = typeof window !== 'undefined' ? window.location.href : '';
   const onshare = () => {

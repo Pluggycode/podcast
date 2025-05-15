@@ -13,6 +13,23 @@ function VideoDetails({ videoData }) {
 
 const deleteVideo = useMutation(api.videos.deleteVideo)  // Your delete function
 const router = useRouter()
+
+const handleDelete = async () => {
+  if (!videoData?._id) return
+  const confirmed = confirm("Are you sure you want to delete this video?")
+  if (!confirmed) return
+
+  try {
+    await deleteVideo({ id: videoData._id })  // Pass the document ID
+    alert("Video deleted successfully")
+    router.push('/dashboard')  // Redirect after deletion
+  } catch (error) {
+    console.error("Failed to delete video:", error)
+    alert("Error deleting video")
+  }
+}
+
+
   const [share, setshare] = useState();
   const currentURL = typeof window !== 'undefined' ? window.location.href : '';
   const onshare = () => {

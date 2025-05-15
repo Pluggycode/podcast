@@ -1,4 +1,4 @@
-hiimport { mutation, query } from "./_generated/server";
+import { mutation, query } from "./_generated/server";
 import {asObjectValidator, v} from "convex/values"
 
 export const createPodcastData = mutation({

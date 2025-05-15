@@ -52,7 +52,7 @@ function VideoDetails({ videoData }) {
         <p className='text-gray-500 text-sm'>Script: {videoData?.script}</p>
         <h2>VideoStyle: {videoData?.videoStyle}</h2>
         {share ? <ShareButtons title={videoData?.title} url={currentURL}
-          className='mt-5' /> : <Button onClick={onshare} className=" mt-5"><LucideShare /> Share</Button>}
+          className='mt-5' /> : <Button onClick={onshare} className=" mt-5"><Share2 className='mr-2 h-4 w-4'/> Share</Button>}
         {share ? <Button onClick={offshare} className='mt-5 mr-50'><ArrowLeft /> Back </Button> : ''}
 
       </div>

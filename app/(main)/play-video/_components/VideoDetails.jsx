@@ -53,7 +53,7 @@ const handleDelete = async () => {
         {share ? <ShareButtons title={videoData?.title} url={currentURL}
           className='mt-5' /> : <Button onClick={onshare} className=" mt-5"><LucideShare /> Share</Button>}
         {share ? <Button onClick={offshare} className='mt-5 mr-50'><ArrowLeft/> Back </Button> : ''}
-        <Button><SkullIcon /> Delete </Button>
+       <Button onClick={handleDelete}><SkullIcon /> Delete</Button>
       </div>
     </div>
   )

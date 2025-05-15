@@ -43,7 +43,7 @@ function VideoList() {
 
             <div className="grid grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 gap-4 mt-10">
                 {filteredVideoList.map((podcast, index) => (
-                    <Link href={'/play-video/' + podcast?._id} key={index}>
+                    <Link href={'/play-explore-video/' + podcast?._id} key={index}>
                         <div className="relative">
                             {podcast?.status == 'completed' ? (
                                 <Image 

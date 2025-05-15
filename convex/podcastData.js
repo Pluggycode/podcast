@@ -1,4 +1,4 @@
-import { mutation, query } from "./_generated/server";
+hiimport { mutation, query } from "./_generated/server";
 import {asObjectValidator, v} from "convex/values"
 
 export const createPodcastData = mutation({
@@ -93,3 +93,7 @@ export const GetAllPodcasts = query({
       return result;
     },
   });
+
+export const deleteVideo = mutation(async ({ db }, { id }) => {
+  await db.delete(id)
+})

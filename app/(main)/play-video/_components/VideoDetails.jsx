@@ -1,4 +1,4 @@
-import { ArrowLeft, DownloadIcon, SkullIcon } from 'lucide-react'
+import { ArrowLeft, DownloadIcon, Share2, SkullIcon } from 'lucide-react'
 import React from 'react'
 import { Button } from '../../../../components/ui/button'
 import Link from 'next/link'
@@ -8,6 +8,7 @@ import { useState } from 'react'
 import { useMutation } from 'convex/react'
 import { api } from '../../../../convex/_generated/api'
 import { useRouter } from 'next/navigation'
+import { X } from 'lucide-react'
 
 
 function VideoDetails({ videoData }) {
@@ -52,9 +53,9 @@ function VideoDetails({ videoData }) {
         <p className='text-gray-500 text-sm'>Script: {videoData?.script}</p>
         <h2>VideoStyle: {videoData?.videoStyle}</h2>
         {share ? <ShareButtons title={videoData?.title} url={currentURL}
-          className='mt-5' /> : <Button onClick={onshare} className=" mt-5"><LucideShare /> Share</Button>}
+          className='mt-5' /> : <Button onClick={onshare} className=" mt-5 "><Share2 className='mr-2 h-4 w-4'/> Share</Button>}
         {share ? <Button onClick={offshare} className='mt-5 mr-50'><ArrowLeft /> Back </Button> : ''}
-        <Button onClick={handleDelete}><SkullIcon /> Delete</Button>
+        <Button onClick={handleDelete}><X className='mr-2 h-4 w-4' /> Delete</Button>
 
       </div>
     </div>

@@ -5,6 +5,9 @@ import Link from 'next/link'
 import { LucideShare, SkipBack } from 'lucide-react'
 import ShareButtons from './ShareButtons'
 import { useState } from 'react'
+import { useMutation } from 'convex/react'
+import { api } from '../../../../convex/_generated/api'
+import { useRouter } from 'next/router'
 
 function VideoDetails({ videoData }) {
   const [share, setshare] = useState();

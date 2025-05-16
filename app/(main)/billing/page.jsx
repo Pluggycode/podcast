@@ -8,11 +8,11 @@ import { useMutation } from "convex/react";
 import { api } from "../../../convex/_generated/api";
 
 const credits = [
-  { Credits: 1, cost: 1},
-  { Credits: 5, cost: 5},
-  { Credits: 10, cost: 10 },
-  { Credits: 20, cost: 15 },
-  { Credits: 30, cost: 25},
+  { Credits: 10, cost: 1},
+  { Credits: 50, cost: 5},
+  { Credits: 100, cost: 10 },
+  { Credits: 200, cost: 15 },
+  { Credits: 300, cost: 25},
 ];
 
 function Page() {

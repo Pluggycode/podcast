@@ -62,7 +62,7 @@ function Page() {
 
               {/* Price & PayPal Button */}
               <div className="flex items-center gap-3">
-                <h2 className="font-bold text-lg">$ {credit.cost}</h2>
+                <h2 className="font-bold text-lg">${credit.cost}</h2>
                 <div className="w-full max-w-[180px]">
                   <PayPalButtons
                     style={{ layout: "horizontal", shape: "rect", size: "small" }}

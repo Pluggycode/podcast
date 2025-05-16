@@ -8,11 +8,11 @@ import { useMutation } from "convex/react";
 import { api } from "../../../convex/_generated/api";
 
 const credits = [
-  { Credits: 10, cost: 100},
-  { Credits: 50, cost: 500 },
-  { Credits: 100, cost: 1000 },
-  { Credits: 200, cost: 1500 },
-  { Credits: 300, cost: 2500 },
+  { Credits: 1, cost: 1},
+  { Credits: 5, cost: 5},
+  { Credits: 10, cost: 10 },
+  { Credits: 20, cost: 15 },
+  { Credits: 30, cost: 25},
 ];
 
 function Page() {
@@ -62,7 +62,7 @@ function Page() {
 
               {/* Price & PayPal Button */}
               <div className="flex items-center gap-3">
-                <h2 className="font-bold text-lg">₹{credit.cost}</h2>
+                <h2 className="font-bold text-lg">$ {credit.cost}</h2>
                 <div className="w-full max-w-[180px]">
                   <PayPalButtons
                     style={{ layout: "horizontal", shape: "rect", size: "small" }}

@@ -25,7 +25,7 @@ function Header() {
         <nav className="flex justify-between items-center mb-16">
           <div className="flex items-center space-x-2">
             <Mic className="w-8 h-8 text-purple-400" />
-            <span className="text-2xl font-bold text-white">SSIT Podcast AI</span>
+            <span className="text-2xl font-bold text-white">Magna Podcast AI</span>
           </div>
 
           {!user ? (
